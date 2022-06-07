@@ -1,9 +1,10 @@
+.DS_Store
 .ipynb_checkpoints/
-dataset/
-models/
+
 wandb/
+dataset/*
+models/*
 
 !models/baseline.hdf5
 !models/haarcascade_frontalface_default.xml
-
-.DS_Store
+!dataset/sample.jpg
