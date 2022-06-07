@@ -7,4 +7,5 @@ models/*
 
 !models/baseline.hdf5
 !models/haarcascade_frontalface_default.xml
+!models/smile_detection.mlmodel
 !dataset/sample.jpg
