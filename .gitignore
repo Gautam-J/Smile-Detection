@@ -2,10 +2,12 @@
 .ipynb_checkpoints/
 
 wandb/
+saved_model/
 dataset/*
 models/*
 
 !models/baseline.hdf5
 !models/haarcascade_frontalface_default.xml
 !models/smile_detection.mlmodel
+!models/smile_detection.tflite
 !dataset/sample.jpg
