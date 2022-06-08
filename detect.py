@@ -19,18 +19,17 @@ face_detector = cv2.CascadeClassifier(args['cascade'])
 smile_detector = load_model(args['model'])
 
 img = cv2.imread(args['image'])
-clone_img = img.copy()
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-gray = cv2.cvtColor(clone_img, cv2.COLOR_BGR2GRAY)
 rects = face_detector.detectMultiScale(gray, scaleFactor=1.1,
                                        minNeighbors=5,
                                        minSize=(30, 30),
                                        flags=cv2.CASCADE_SCALE_IMAGE)
 
 for (fX, fY, fW, fH) in rects:
-    roi = gray[fY: fY + fH, fX: fX + fW]
-    roi = cv2.resize(roi, (64, 64))
+    roi = img[fY: fY + fH, fX: fX + fW]
     roi = cv2.cvtColor(roi, cv2.COLOR_BGR2RGB)
+    roi = cv2.resize(roi, (64, 64))
     roi = roi.reshape(1, *roi.shape)
 
     pred = smile_detector.predict(roi)[0][0]
